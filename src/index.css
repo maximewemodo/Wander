@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Switzer', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Syne', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-bg-main: var(--color-bg-main);
+  --color-surface: var(--color-surface);
+  --color-ink: var(--color-ink);
+  --color-ink-faint: var(--color-ink-faint);
+  --color-ink-medium: var(--color-ink-medium);
+  --color-accent: var(--color-accent);
+  --color-accent-ink: var(--color-accent-ink);
+}
+
+:root {
+  /* 60% Background */
+  --color-bg-main: #F4F3F0;
+  /* 30% Surface (Sidebar, Cards) */
+  --color-surface: #FFFFFF;
+  /* Text & Borders */
+  --color-ink: #1A1A18;
+  --color-ink-faint: rgba(26, 26, 24, 0.18);
+  --color-ink-medium: #403F3B;
+  /* 10% Accent (Muted Terracotta) */
+  --color-accent: #B35233;
+  --color-accent-ink: #FFFFFF;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 60% Background */
+    --color-bg-main: #141412;
+    /* 30% Surface */
+    --color-surface: #1E1E1C;
+    /* Text & Borders */
+    --color-ink: #EAE9E4;
+    --color-ink-faint: rgba(234, 233, 228, 0.18);
+    --color-ink-medium: #D0CEC7;
+    /* 10% Accent */
+    --color-accent: #C76241;
+    --color-accent-ink: #FFFFFF;
+  }
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-ink);
+}
+
+body {
+  background-color: var(--color-bg-main);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}

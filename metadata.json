@@ -1,0 +1,6 @@
+{
+  "name": "Wander - Itinéraires Express",
+  "description": "Générateur d'itinéraires de voyage sur-mesure pour des escapades de 1 à 3 jours.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
