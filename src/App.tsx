@@ -43,6 +43,11 @@ const CITY_SUBTITLES: Record<City, string> = {
   'Tokyo': 'Japon • Mégalopole Futuriste',
   'Rome': 'Italie • Cité Éternelle',
   'New York': 'États-Unis • The Big Apple',
+  'Londres': 'Royaume-Uni • Capitale Cosmopolite',
+  'Barcelone': 'Espagne • Joyau Catalan',
+  'Amsterdam': 'Pays-Bas • La Venise du Nord',
+  'Lisbonne': 'Portugal • Ville aux Sept Collines',
+  'Marrakech': 'Maroc • La Ville Ocre',
 };
 
 export default function App() {
@@ -508,6 +513,7 @@ export default function App() {
                   key={appliedParams.city}
                   src={CITY_IMAGES[appliedParams.city]} 
                   alt={appliedParams.city}
+                  referrerPolicy="no-referrer"
                   initial={{ opacity: 0, scale: 1.04 }}
                   animate={{ opacity: 0.7, scale: 1 }}
                   exit={{ opacity: 0 }}
