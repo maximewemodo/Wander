@@ -319,11 +319,11 @@ export default function App() {
       
       {/* 1) Fixed Top / Floating Navbar on Mobile & Tablet */}
       <header className="lg:hidden sticky top-0 left-0 right-0 z-30 bg-surface/95 backdrop-blur-md border-b-[1.5px] border-ink px-4 py-2.5 flex items-center justify-between shadow-xs">
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 overflow-hidden">
           <Logo />
-          <div>
-            <span className="font-display text-lg font-extrabold uppercase tracking-tight block">Wander</span>
-            <span className="font-mono text-[0.65rem] text-ink-medium tracking-wider uppercase block">
+          <div className="min-w-0">
+            <span className="font-display text-[clamp(1rem,4.5vw,1.125rem)] font-extrabold uppercase tracking-tight block whitespace-nowrap">Wander</span>
+            <span className="font-mono text-[clamp(0.55rem,2.5vw,0.65rem)] text-ink-medium tracking-wider uppercase block whitespace-nowrap overflow-hidden text-ellipsis">
               {hasValidated ? `${appliedParams.city} • ${appliedParams.days}j • ${appliedParams.budget}` : 'Configurez votre séjour'}
             </span>
           </div>
@@ -507,7 +507,7 @@ export default function App() {
           /* Validated Itinerary View */
           <>
             {/* Hero Banner */}
-            <div className="h-[26vh] sm:h-[34vh] lg:h-[42vh] min-h-[190px] relative bg-black w-full overflow-hidden">
+            <div className="h-[26vh] sm:h-[34vh] lg:h-[42vh] min-h-[190px] relative bg-black w-full overflow-hidden [container-type:inline-size]">
               <AnimatePresence mode="wait">
                 <motion.img 
                   key={appliedParams.city}
@@ -527,7 +527,7 @@ export default function App() {
                   initial={{ opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.35, ease: 'easeOut' }}
-                  className="font-display text-[clamp(2.2rem,6vw,6.5rem)] leading-[0.88] tracking-[-0.05em] uppercase mb-2 sm:mb-3 font-extrabold break-words max-w-full"
+                  className="font-display text-[clamp(1.5rem,12cqi,6.5rem)] leading-[0.88] tracking-[-0.05em] uppercase mb-2 sm:mb-3 font-extrabold whitespace-nowrap"
                 >
                   {appliedParams.city}
                 </motion.h2>
@@ -536,9 +536,9 @@ export default function App() {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
-                  className="font-mono text-xs sm:text-sm lg:text-base uppercase tracking-[0.18em] text-white/90 font-medium"
+                  className="font-mono text-[clamp(0.6rem,3cqi,1rem)] sm:text-sm lg:text-base uppercase tracking-[0.18em] text-white/90 font-medium whitespace-nowrap overflow-hidden text-ellipsis"
                 >
-                  Votre itinéraire sur-mesure de {appliedParams.days} {appliedParams.days > 1 ? 'jours' : 'jour'} • {appliedParams.vibe}
+                  Votre itinéraire de {appliedParams.days} {appliedParams.days > 1 ? 'jours' : 'jour'} • {appliedParams.vibe}
                 </motion.p>
               </div>
             </div>
