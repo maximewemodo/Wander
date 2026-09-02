@@ -11,4 +11,5 @@ export interface ItineraryStep {
   description: string;
   theme: Theme;
   price: number;
+  mapsUrl?: string;
 }

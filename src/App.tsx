@@ -607,9 +607,23 @@ export default function App() {
                                 <span className="font-mono text-[0.65rem] sm:text-xs uppercase py-0.5 px-2 border border-ink-faint inline-block mb-2 sm:mb-2.5 tracking-wider rounded-xs transition-colors">
                                   {step.theme}
                                 </span>
-                                <h4 className={`font-display text-base sm:text-lg lg:text-xl font-bold mb-1.5 sm:mb-2 tracking-[-0.01em] break-words transition-all duration-200 ${!isChecked ? 'line-through decoration-ink-medium' : ''}`}>
-                                  {step.title}
-                                </h4>
+                                <div className="flex items-center gap-2 mb-1.5 sm:mb-2">
+                                  <h4 className={`font-display text-base sm:text-lg lg:text-xl font-bold tracking-[-0.01em] break-words transition-all duration-200 ${!isChecked ? 'line-through decoration-ink-medium' : ''}`}>
+                                    {step.title}
+                                  </h4>
+                                  {step.mapsUrl && (
+                                    <a
+                                      href={step.mapsUrl}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      onClick={(e) => e.stopPropagation()}
+                                      className={`p-1.5 rounded-full transition-colors flex items-center justify-center ${isChecked ? 'text-ink-medium hover:text-accent hover:bg-bg-main' : 'text-ink-medium/50 hover:text-accent hover:bg-bg-main/50'}`}
+                                      title="Voir sur Google Maps"
+                                    >
+                                      <MapPin className="w-4 h-4 sm:w-4 sm:h-4" />
+                                    </a>
+                                  )}
+                                </div>
                                 <p className="text-ink-medium leading-[1.6] max-w-[540px] text-xs sm:text-sm lg:text-base font-light transition-colors">
                                   {step.description}
                                 </p>

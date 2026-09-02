@@ -21,6 +21,7 @@ export const CITY_IMAGES: Record<City, string> = {
 interface PlaceInfo {
   name: string;
   description: string;
+  mapsUrl?: string;
 }
 
 const MOCK_PLACES: Record<City, Record<Theme, PlaceInfo[]>> = {
@@ -77,19 +78,19 @@ const MOCK_PLACES: Record<City, Record<Theme, PlaceInfo[]>> = {
   },
   'Rome': {
     'Culture': [
-      { name: 'Colisée & Forum', description: "Plongez dans la Rome antique au cœur du plus grand amphithéâtre jamais construit." },
-      { name: 'Musées du Vatican', description: "Des collections inestimables couronnées par la Chapelle Sixtine." },
-      { name: 'Galerie Borghèse', description: "Chefs-d'œuvre du Bernin et du Caravage dans une somptueuse villa." }
+      { name: 'Colisée & Forum', description: "Plongez dans la Rome antique au cœur du plus grand amphithéâtre jamais construit.", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Colisée+Rome" },
+      { name: 'Musées du Vatican', description: "Des collections inestimables couronnées par la Chapelle Sixtine.", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Musées+du+Vatican" },
+      { name: 'Galerie Borghèse', description: "Chefs-d'œuvre du Bernin et du Caravage dans une somptueuse villa.", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Galerie+Borghèse+Rome" }
     ],
     'Food': [
-      { name: 'Roscioli Salumeria', description: "Épicerie-restaurant culte proposant d'exceptionnelles pâtes à la carbonara." },
-      { name: 'Giolitti', description: "L'une des plus anciennes et célèbres gelaterias artisanales de Rome." },
-      { name: 'Pizzarium Bonci', description: "La référence incontestée de la pizza al taglio (à la coupe)." }
+      { name: 'Roscioli Salumeria', description: "Épicerie-restaurant culte proposant d'exceptionnelles pâtes à la carbonara.", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Roscioli+Salumeria+Rome" },
+      { name: 'Giolitti', description: "L'une des plus anciennes et célèbres gelaterias artisanales de Rome.", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Giolitti+Rome" },
+      { name: 'Pizzarium Bonci', description: "La référence incontestée de la pizza al taglio (à la coupe).", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Pizzarium+Bonci+Rome" }
     ],
     'Détente': [
-      { name: 'Villa Borghese', description: "Immense parc en forme de cœur offrant des jardins à l'anglaise." },
-      { name: 'Jardin des Orangers', description: "Une terrasse panoramique parfumée offrant l'une des plus belles vues sur la ville." },
-      { name: 'Trastevere', description: "Flânerie dans les ruelles pavées et colorées de ce quartier bohème." }
+      { name: 'Villa Borghese', description: "Immense parc en forme de cœur offrant des jardins à l'anglaise.", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Villa+Borghese+Rome" },
+      { name: 'Jardin des Orangers', description: "Une terrasse panoramique parfumée offrant l'une des plus belles vues sur la ville.", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Giardino+degli+Aranci+Rome" },
+      { name: 'Trastevere', description: "Flânerie dans les ruelles pavées et colorées de ce quartier bohème.", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Trastevere+Rome" }
     ]
   },
   'New York': {
@@ -256,7 +257,8 @@ export function generateItinerary(city: City, budget: Budget, vibe: Vibe, days: 
         title: place.name,
         description: place.description,
         theme,
-        price: isFree ? 0 : finalPrice
+        price: isFree ? 0 : finalPrice,
+        mapsUrl: place.mapsUrl
       });
     });
   }
